@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,css,html}\"",
+    "serve": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
+  }
+}
