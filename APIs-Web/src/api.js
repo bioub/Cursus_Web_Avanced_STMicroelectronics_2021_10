@@ -7,10 +7,17 @@
 // Appeler ensuite cette fonction depuis index.js (au chargement de la page)
 // et appeler createTodoRow pour chaque élément du tableau retourné
 
-export function fetchTodos() {
-  return fetch('https://jsonplaceholder.typicode.com/todos', {
+// export function fetchTodos() {
+//   return fetch('https://jsonplaceholder.typicode.com/todos', {
+//     credentials: 'include',
+//   }).then((res) => res.json());
+// }
+export async function fetchTodos() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos', {
     credentials: 'include',
-  }).then((res) => res.json());
+  });
+  const data = await res.json();
+  return data;
 }
 
 // Exercice 2 : Insérer une nouvelle todo
