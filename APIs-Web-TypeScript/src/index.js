@@ -8,6 +8,9 @@
 
 import { deleteTodo, fetchTodos, postTodo } from './api.js';
 import { createTodoEdit, createTodoRow, createTodoTitle } from './todos.js';
+import { kebabCase } from '../node_modules/lodash-es/lodash.js';
+
+console.log(kebabCase('Bonjour à tous'));
 
 /** @type {HTMLFormElement} */
 const todoFormEl = document.querySelector('.todo-form');
