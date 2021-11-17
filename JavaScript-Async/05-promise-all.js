@@ -21,7 +21,7 @@ function httpClient(url) {
   });
 }
 
-Promise.all([httpClient('/users'), httpClient('/error')])
+Promise.all([httpClient('/users'), httpClient('/todos')])
   .then((data) => {
     console.log('All promises resolved', data);
   })

@@ -29,6 +29,6 @@ function readFile(path) {
   });
 }
 
-readFile('.editorcnfig')
+readFile('.editorconfig')
   .then((buffer) => console.log(buffer.toString('utf-8')))
   .catch((err) => console.log(err));
