@@ -17,5 +17,5 @@ Ajouter les décorateurs @injectable() sur les classes UserService et ModuleUser
 Exercice 3 :
 Configurer les services dans container.ts :
 A la clé ModuleUserTheia passer une instance de ModuleUserTheia en Singleton (ne pas utiliser toConstantValue)
-A la clé UserModule passer la variable fakeUserService avec toConstantValue
+A la clé UserService passer la variable fakeUserService avec toConstantValue
 */
