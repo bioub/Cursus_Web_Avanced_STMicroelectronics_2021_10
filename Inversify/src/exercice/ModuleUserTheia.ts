@@ -1,10 +1,10 @@
+import { injectable } from "inversify";
 import { UserService } from "./UserService";
 
+@injectable()
 export class ModuleUserTheia {
-  protected userService: UserService;
-  constructor() {
-    this.userService = new UserService();
-  }
+  constructor(protected userService: UserService) {}
+
   showUsers() {
     this.userService.getAll().then((users) => {
       console.log(users);

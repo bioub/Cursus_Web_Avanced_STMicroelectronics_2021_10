@@ -1,3 +1,6 @@
+import { injectable } from "inversify";
+
+@injectable()
 export class UserService {
   async getAll() {
     const res = await fetch('/users');
