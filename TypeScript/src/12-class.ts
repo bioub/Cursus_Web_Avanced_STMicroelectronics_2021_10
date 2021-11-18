@@ -52,6 +52,8 @@ interface Writable {
 }
 
 class FileWriter implements Writable {
+  contact!: Contact;
+
   write(msg: string): void {
     // TODO fs.appendFile...
   }

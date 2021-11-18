@@ -1,4 +1,4 @@
-import {  Contenu } from "./Cafe";
+import {  Contenu } from "./Contenu";
 
 export class Tasse {
 

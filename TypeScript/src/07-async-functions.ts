@@ -5,3 +5,4 @@ async function readFile(path: string): Promise<Buffer> {
   return buffer;
 }
 
+readFile('').then((b) => console.log(b));

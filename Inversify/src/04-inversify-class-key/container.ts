@@ -6,10 +6,10 @@ import { Logger } from './Logger';
 let container = new Container();
 
 if (process.env.NODE_ENV === 'production') {
-  // container.bind(FileWriter).toService(FileWriter);
   container.bind(FileWriter).toDynamicValue(() => {
     return new FileWriter('tmp.txt');
   })
+  // container.bind(Logger).to(Logger);
   container.bind(Logger).toSelf();
 } else {
   // const writer = new ConsoleWriter();

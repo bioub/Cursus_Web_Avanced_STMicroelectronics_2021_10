@@ -9,7 +9,9 @@ let container = new Container({
 });
 
 if (process.env.NODE_ENV === 'production') {
-  container.bind(WriterInterface).toService(FileWriter);
+  // container.bind(FileWriter).toSelf();
+  // container.bind(Logger).toSelf();
+  container.bind(WriterInterface).toService(FileWriter); // alias
 } else {
   container.bind(WriterInterface).toService(ConsoleWriter);
 }

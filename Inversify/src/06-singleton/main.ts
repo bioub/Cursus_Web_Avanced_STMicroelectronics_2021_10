@@ -7,7 +7,7 @@ export function main() {
 
   logger.log('Hello');
 
-  console.log(logger === logger2); // est-ce que logger est un singleton ?
+  console.log(logger === logger2); // (true) est-ce que logger est un singleton ?
 }
 
 /*
