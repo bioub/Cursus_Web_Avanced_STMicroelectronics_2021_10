@@ -39,7 +39,9 @@ async function fetch(url:string) {
 
 export class UserService extends EventEmitter {
   async getAll() {
+    // setTimeout(() => {
     this.emit('prefetch', '/users');
+    // }, 0);
     const res = await fetch('/users');
     this.emit('postfetch', '/users');
   }
@@ -49,9 +51,7 @@ export class UserService extends EventEmitter {
 const userService = new UserService();
 
 userService.on('prefetch', (url) => {
-  // setTimeout(() => {
-    console.log('prefetch', url);
-  // }, 0);
+  console.log('prefetch', url);
 });
 
 userService.getAll();

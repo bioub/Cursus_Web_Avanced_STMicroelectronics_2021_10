@@ -1,7 +1,7 @@
 import http from 'http';
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/') {
+  if (req.method === 'GET' && req.url === '/') {
     res.statusCode = 200;
     res.setHeader('Content-type', 'text/plain');
     res.write('Hello HTTP');

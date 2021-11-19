@@ -1,6 +1,8 @@
 import fs from 'fs-extra';
 import terser, { minify, MinifyOptions } from 'terser';
-import { getRandomInt } from 'mdn-random';
+import { getRandom } from 'mdn-random';
+
+getRandom();
 
 const options: MinifyOptions = {
   mangle: false,

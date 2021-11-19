@@ -1,10 +1,18 @@
 {
   "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
     "@types/node": "^12.20.37",
     "typescript": "^4.5.2"
   },
   "scripts": {
     "serve:net": "nodemon --exec ts-node src/05-net-server.ts -e ts",
-    "serve:http": "nodemon --exec ts-node src/06-http-server.ts -e ts"
+    "serve:http": "nodemon --exec ts-node src/06-http-server.ts -e ts",
+    "serve:express": "nodemon --exec ts-node src/07-express-server.ts -e ts"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
   }
 }
