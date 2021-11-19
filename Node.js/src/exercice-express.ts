@@ -28,6 +28,7 @@ const todos: Todo[] = [
 // DELETE /todos/123 (où 123 est l'id de la todo)
 // supprimer la TODO corresponde si elle existe (Status 200) retourner {} en JSON
 // si la todo n'existe pas retourne un status 404
+// Indice : pour supprimer d'un tableau on utilise la méthode splice (voir docs MDN)
 
 // POST /todos avec en Body le JSON d'une todo (ex : {"title": "ABC", "completed": false})
 // Générer un id (soit aléatoire soit différent du reste du tableau)
@@ -36,4 +37,4 @@ const todos: Todo[] = [
 // Status 201
 
 // Reprendre le projet API Web TypeScript et changer les URL
-// dans api.ts pour requete votre serveur Express
+// dans api.ts pour requeter votre serveur Express
