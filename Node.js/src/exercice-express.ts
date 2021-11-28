@@ -35,6 +35,10 @@ const todos: Todo[] = [
 // Stocker la todo dans le tableau
 // Retourner la todo créé (avec son id)
 // Status 201
+// const newTodo = {
+//   id: 123,
+//   ...oldTodo,
+// };
 
 // Reprendre le projet API Web TypeScript et changer les URL
 // dans api.ts pour requeter votre serveur Express
