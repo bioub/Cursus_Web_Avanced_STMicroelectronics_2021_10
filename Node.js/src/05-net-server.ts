@@ -2,7 +2,7 @@ import net from 'net';
 
 const server = net.createServer();
 
-server.on('listening', () => {
+server.once('listening', () => {
   console.log('server started');
 });
 
