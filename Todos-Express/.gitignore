@@ -1,3 +1,5 @@
 node_modules
 dist
 *.copy
+.nyc_output
+coverage
