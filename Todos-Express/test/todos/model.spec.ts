@@ -20,11 +20,13 @@ describe('TodoArrayService class', () => {
   // Fonction pure
   describe('method static countCompleted', () => {
     it('should return number of completed todos', async () => {
-      TodoArrayService.countCompleted([
+      const count = TodoArrayService.countCompleted([
         { id: 1, title: 'ABC', completed: true },
         { id: 2, title: 'DEF', completed: false },
         { id: 3, title: 'GHI', completed: true },
       ]);
+
+      expect(count).to.equals(2);
 
       // Vérifier que l'appel de countCompleted retourne 2
     });
@@ -40,6 +42,8 @@ describe('TodoArrayService class', () => {
       // Vérifier que la fonction create resolve un nouvel objet todo
       // avec le prochain id (voir le beforeEach)
       // et un nouvel objet (différent de todoToCreate)
+      expect(newTodo).to.deep.equal({ title: 'XYZ', completed: false, id: 2 }); // deepEqual
+      expect(newTodo).not.equal(todoToCreate); // !==
     });
   });
 });

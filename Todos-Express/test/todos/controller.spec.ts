@@ -32,7 +32,7 @@ describe('todos controllers', () => {
         { id: 1, title: 'ABC', completed: true },
       ]);
 
-      mock.restore();
+      mock.verify();
     });
   });
 
@@ -66,13 +66,34 @@ describe('todos controllers', () => {
         completed: true,
       });
 
-      mock.restore();
+      mock.verify();
     });
     it('should call res.json with 404 if model respond null', async () => {
-      const req = {} as any;
+      const req = {
+        params: {
+          todoId: '123',
+        },
+      } as any;
       const res = {} as any;
       res.status = sinon.stub().returns(res); // un stub === un spy avec un comportement (ici une valeur de retour)
       res.json = sinon.spy();
+
+      const mock = sinon.mock(model);
+
+      mock
+        .expects('findByIdAndDelete')
+        .withExactArgs('123')
+        .once()
+        .resolves(null);
+
+      await todoDeleteCtrl(req, res);
+
+      expect(res.status).to.have.been.calledOnceWithExactly(404);
+      expect(res.json).to.have.been.calledOnceWithExactly({
+        reason: 'Todo not found',
+      });
+
+      mock.verify();
     });
   });
 });
