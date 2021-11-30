@@ -1,4 +1,4 @@
-import { todoListCtrl } from '../../src/todos/controllers';
+import { todoDeleteCtrl, todoListCtrl } from '../../src/todos/controllers';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { expect, use } from 'chai';
@@ -15,8 +15,9 @@ describe('todos controllers', () => {
         json: sinon.spy(),
       } as any;
 
-      sinon
-        .mock(model)
+      const mock = sinon.mock(model);
+
+      mock
         .expects('find')
         .once()
         // .callsFake(() => Promise.resolve([{ id: 1, title: 'ABC', completed: true }]))
@@ -30,6 +31,8 @@ describe('todos controllers', () => {
       expect(res.json).to.have.been.calledWith([
         { id: 1, title: 'ABC', completed: true },
       ]);
+
+      mock.restore();
     });
   });
 
@@ -38,10 +41,32 @@ describe('todos controllers', () => {
   // Tester la méthode todoDeleteCtrl
   describe('todoDeleteCtrl function', () => {
     it('should call res.json with data from model', async () => {
-      const req = {} as any;
+      const req = {
+        params: {
+          todoId: '123',
+        },
+      } as any;
       const res = {
         json: sinon.spy(),
       } as any;
+
+      const mock = sinon.mock(model);
+
+      mock
+        .expects('findByIdAndDelete')
+        .once()
+        .resolves({ id: 123, title: 'ABC', completed: true });
+
+      await todoDeleteCtrl(req, res);
+
+      expect(res.json).to.have.been.calledOnce;
+      expect(res.json).to.have.been.calledWith({
+        id: 123,
+        title: 'ABC',
+        completed: true,
+      });
+
+      mock.restore();
     });
     it('should call res.json with 404 if model respond null', async () => {
       const req = {} as any;
