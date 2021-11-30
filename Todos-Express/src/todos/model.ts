@@ -1,41 +1,52 @@
-import { Todo } from "./todo";
+import { Todo } from './todo';
 
-const todos: Todo[] = [
-  {
-    id: 1,
-    title: 'ABC',
-    completed: true,
-  },
-  {
-    id: 2,
-    title: 'XYZ',
-    completed: false,
-  },
-];
+export class TodoArrayService {
+  todos: Todo[] = [
+    {
+      id: 1,
+      title: 'ABC',
+      completed: true,
+    },
+    {
+      id: 2,
+      title: 'XYZ',
+      completed: false,
+    },
+  ];
 
-export function find(): Promise<Todo[]> {
-  return Promise.resolve(todos);
-}
-
-export function create(todoDto: Todo): Promise<Todo> {
-  const todo = { ...todoDto, id: Math.random() };
-
-  todos.push(todo);
-
-  return Promise.resolve(todo);
-}
-
-export function findByIdAndDelete(id: string | number): Promise<Todo|null> {
-  const todoId = +id;
-
-  const index = todos.findIndex((t) => t.id === todoId);
-
-  if (index === -1) {
-    return Promise.resolve(null);
+  static countCompleted(inputTodos: Todo[]) {
+    return inputTodos.filter((t) => t.completed).length;
   }
 
-  const todoDeleted = todos[index];
-  todos.splice(index, 1)
+  find(): Promise<Todo[]> {
+    return Promise.resolve(this.todos);
+  }
 
-  return Promise.resolve(todoDeleted);
+  // retourne le prochain id
+  nextId() {
+    return this.todos.reduce((acc, t) => t.id ?? 0 > acc ? t.id ?? 0 : acc, 0) + 1;
+  }
+
+  create(todoDto: Todo): Promise<Todo> {
+    const todo = { ...todoDto, id: this.nextId() };
+
+    this.todos.push(todo);
+
+    return Promise.resolve(todo);
+  }
+
+  findByIdAndDelete(id: string | number): Promise<Todo | null> {
+    const todoId = +id;
+
+    const index = this.todos.findIndex((t) => t.id === todoId);
+
+    if (index === -1) {
+      return Promise.resolve(null);
+    }
+
+    const todoDeleted = this.todos[index];
+    this.todos.splice(index, 1);
+
+    return Promise.resolve(todoDeleted);
+  }
 }

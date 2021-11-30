@@ -1,4 +1,5 @@
 import { expect } from 'chai';
+import sinon, { SinonFakeTimers } from 'sinon';
 
 function httpClient(url: string) {
   const data: any = {
@@ -24,16 +25,29 @@ function httpClient(url: string) {
 }
 
 describe('httpClient function', () => {
+  let fakeTimer: SinonFakeTimers;
+  beforeEach(() => {
+    fakeTimer = sinon.useFakeTimers(); // globalThis.setTimeout = () => {}
+  });
+  afterEach(() => {
+    fakeTimer.restore(); //  globalThis.setTimeout = originalSetTimeout;
+  });
   it('should resolve a value when the url exists', async () => {
-    const users = await httpClient('/users');
+    const promise = httpClient('/users');
+    fakeTimer.tick(1000);
+    const users = await promise;
     expect(users).to.deep.equals([
       { id: 1, name: 'A' },
       { id: 2, name: 'B' },
     ]);
   });
-  // it('should rejectwhen the url does not exist', () => {
-  //   expect(async () => {
-  //     const users = await httpClient('/toto');
-  //   }).to.throw(new Error('no data for this url'));
+  // it('should resolve a value when the url exists', (done) => {
+  //   httpClient('/users').then((users) => {
+  //     expect(users).to.deep.equals([
+  //       { id: 1, name: 'A' },
+  //       { id: 2, name: 'B' },
+  //     ]);
+  //     done();
+  //   });
   // });
 });
