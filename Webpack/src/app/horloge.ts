@@ -1,4 +1,5 @@
-// import css from './horloge.module.css';
+import css from './horloge.css';
+import config from './config.json';
 
 export class Horloge {
   constructor(private container: HTMLElement) {}
@@ -9,8 +10,8 @@ export class Horloge {
   }
 
   start() {
-    // this.container.className = css.horloge;
+    this.container.className = css.horloge;
     this.render();
-    setInterval(this.render.bind(this), 1000);
+    setInterval(this.render.bind(this), config.delay);
   }
 }
