@@ -28,6 +28,8 @@ Installer le paquet npm `json5`
 Modifier la config pour autoriser les fichiers `.json5` en  vous inspirant de l'exemple suivant :
 https://github.com/webpack/webpack/tree/main/examples/custom-json-modules
 
+Vous devrez ajouter un fichier `.d.ts` dans le répertoire types pour supporter l'extension `.json5` en TypeScript.
+
 ## SASS
 
 Renommer le fichier `horloge.css` en `horloge.scss` et lui donner ce contenu :
