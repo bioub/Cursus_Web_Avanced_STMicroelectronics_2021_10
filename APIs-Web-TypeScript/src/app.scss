@@ -1,0 +1,28 @@
+$color: beige;
+$padding: 10px;
+
+.container {
+  width: 600px - $padding;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: $color;
+}
+
+.todo-form {
+  display: flex;
+  input[type="text"] {
+    flex: 1;
+  }
+}
+
+.todo-row {
+  display: flex;
+}
+
+.todo-title,
+.todo-edit {
+  flex: 1;
+  color: darken($color, 20%);
+}
+
+@import './button';
