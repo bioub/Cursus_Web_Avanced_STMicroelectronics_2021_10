@@ -26,6 +26,9 @@
 		},
 		{
 			"path": "Todos-Express"
+		},
+		{
+			"path": "Todos-Express-Inversify"
 		}
 	]
 }
