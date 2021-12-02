@@ -24,10 +24,15 @@ import React from 'react';
 //   );
 // }
 
-function Hello() {
+interface HelloProps {
+  name?: string;
+}
+
+function Hello(props: HelloProps) {
+  const { name = 'Romain' } = props;
   return (
     <div className="Hello">
-      <span>Hello Romain</span>
+      <span>Hello {name}</span>
     </div>
   );
 }
