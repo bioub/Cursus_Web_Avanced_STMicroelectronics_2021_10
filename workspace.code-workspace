@@ -32,6 +32,9 @@
 		},
 		{
 			"path": "Webpack"
+		},
+		{
+			"path": "hello-react"
 		}
 	]
 }
