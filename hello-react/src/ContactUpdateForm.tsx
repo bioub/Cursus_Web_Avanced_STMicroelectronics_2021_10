@@ -20,3 +20,35 @@
   </div>
 </form>
 */
+
+import { Component } from 'react';
+import { ContactInterface } from './ContactInterface';
+
+interface ContactUpdateFormProps {
+  contact: ContactInterface;
+}
+
+class ContactUpdateForm extends Component<ContactUpdateFormProps> {
+  render() {
+    const { contact } = this.props;
+
+    return (
+      <form className="ContactUpdateForm">
+        <div className="row">
+          Prénom : <input type="text" value={contact.prenom} />
+        </div>
+        <div className="row">
+          Age : <input type="number" value={contact.age} />
+        </div>
+        <div className="row">
+          Est Formateur : <input type="checkbox" checked={contact.isTrainer} />
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
+      </form>
+    );
+  }
+}
+
+export default ContactUpdateForm;
