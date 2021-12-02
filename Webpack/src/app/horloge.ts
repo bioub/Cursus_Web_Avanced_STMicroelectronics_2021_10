@@ -1,5 +1,5 @@
-import css from './horloge.css';
-import config from './config.json';
+import css from './horloge.scss';
+import config from './config.json5';
 
 export class Horloge {
   constructor(private container: HTMLElement) {}

@@ -32,6 +32,7 @@ describe('todos controllers', () => {
 
       await todosCtrl.list(req, res);
 
+      expect(mockTodosModel.find).to.have.been.calledOnceWithExactly();
       expect(res.json).to.have.been.calledOnce;
       expect(res.json).to.have.been.calledWith([
         { id: 1, title: 'ABC', completed: true },
