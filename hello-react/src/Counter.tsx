@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, MouseEvent } from 'react';
 
 interface CounterProps {
 
@@ -13,7 +13,9 @@ class Counter extends Component<CounterProps> {
     count: 0,
   };
 
-  handleClick = () => {
+  handleClick = (event: MouseEvent) => {
+    console.log(event);
+
     this.setState({
       count: this.state.count + 1,
     });

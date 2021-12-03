@@ -5,6 +5,9 @@ import Hello from './Hello';
 import ContactUpdateForm from './ContactUpdateForm'
 import { ContactInterface } from './ContactInterface';
 import Counter from './Counter';
+import ContactCreateForm from './ContactCreateForm';
+import ExHelloWorld from './ExHelloWorld';
+import ExMultiStateButton from './ExMultiStateButton';
 
 function App() {
   console.log('App');
@@ -18,13 +21,21 @@ function App() {
     isTrainer: true,
   };
 
+  const helloProps = {
+    name: 'Toto',
+  };
+
   return (
     <div className="App">
       <Hello />
       <Hello name="Toto" /> {/* React.createElement(Hello, { name: 'Toto' }) */}
-      <Clock format="HH:mm:ss" delay={1000} />
+      <Hello {...helloProps} /> {/* equivalent la ligne du dessus */}
+      <Clock format="HH:mm:ss" delay={1000} /> {/* React.createElement(Clock, { format: "HH:mm:ss", delay: 1000 }) */}
       <ContactUpdateForm contact={contact} /> {/* React.createElement(Hello, { contact: contact }) */}
       <Counter />
+      <ContactCreateForm />
+      <ExHelloWorld />
+      <ExMultiStateButton />
     </div>
   );
 }
