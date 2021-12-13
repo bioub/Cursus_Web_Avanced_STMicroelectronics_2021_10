@@ -38,6 +38,9 @@
 		},
 		{
 			"path": "Rappels-Langage"
+		},
+		{
+			"path": "todos-react"
 		}
 	]
 }
