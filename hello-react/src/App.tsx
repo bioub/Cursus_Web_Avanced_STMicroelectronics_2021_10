@@ -1,13 +1,16 @@
-import React from 'react';
 import './App.css';
+
+import React from 'react';
+
 import Clock from './Clock';
-import Hello from './Hello';
-import ContactUpdateForm from './ContactUpdateForm'
-import { ContactInterface } from './ContactInterface';
-import Counter from './Counter';
 import ContactCreateForm from './ContactCreateForm';
+import { ContactInterface } from './ContactInterface';
+import ContactUpdateForm from './ContactUpdateForm'
+import Counter from './Counter';
 import ExHelloWorld from './ExHelloWorld';
 import ExMultiStateButton from './ExMultiStateButton';
+import Hello from './Hello';
+import Select from './Select';
 
 function App() {
   console.log('App');
@@ -36,6 +39,7 @@ function App() {
       <ContactCreateForm />
       <ExHelloWorld />
       <ExMultiStateButton />
+      <Select />
     </div>
   );
 }

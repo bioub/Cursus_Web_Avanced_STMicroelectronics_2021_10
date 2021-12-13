@@ -5,6 +5,7 @@ import React from 'react';
 // </div>
 
 // function Hello() {
+//   HTMLDivElement
 //   const divEl = document.createElement('div');
 //   divEl.className = 'Hello';
 

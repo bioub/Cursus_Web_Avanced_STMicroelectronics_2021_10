@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
+import React, { ChangeEvent, Component } from 'react';
 
 class ExHelloWorld extends Component {
-  state = {}; /* ajouter une clé name dans le state */
+  state = {
+    name: 'Romain',
+  }; /* ajouter une clé name dans le state */
+
+  handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: event.target.value });
+  };
+
   render() {
-    const {} = this.state;
+    const { name } = this.state;
     return (
       <div className="ExHelloWorld">
         <div>
-          Prénom : <input /> {/* écouter l'événement input et mettre à jour le state */}
+          Prénom : <input value={name} onChange={this.handleChange} />{' '}
+          {/* écouter l'événement input et mettre à jour le state */}
         </div>
-        <p>Bonjour {/* affiche en temps réel le prénom saisi */}</p>
+        <p>Bonjour {name}</p>
       </div>
     );
   }

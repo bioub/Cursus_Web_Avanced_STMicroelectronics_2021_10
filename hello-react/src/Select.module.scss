@@ -1,0 +1,23 @@
+$color: darkgray;
+
+.host {
+  user-select: none;
+}
+
+.selected {
+  border: 1px solid $color;
+  padding: 5px;
+}
+
+.menu {
+  border: 1px solid $color;
+  display: none;
+}
+
+.menuOpen {
+  display: block;
+}
+
+.item {
+  padding: 5px;
+}

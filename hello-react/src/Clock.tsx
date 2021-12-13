@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { format as formatDateFns } from 'date-fns';
+import React, { Component } from 'react';
 
 interface ClockProps {
   format?: string;
