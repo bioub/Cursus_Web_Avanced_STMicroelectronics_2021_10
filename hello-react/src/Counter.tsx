@@ -22,6 +22,7 @@ class Counter extends Component<CounterProps> {
   }
 
   render() {
+    console.log('Counter');
     const { count } = this.state;
     return <button className="Counter" onClick={this.handleClick}>{count}</button>;
   }

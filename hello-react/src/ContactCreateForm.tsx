@@ -22,9 +22,8 @@
 */
 
 import { ChangeEvent, Component } from 'react';
+
 import { ContactInterface } from './ContactInterface';
-
-
 
 class ContactCreateForm extends Component {
   state: ContactInterface = {

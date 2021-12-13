@@ -4,7 +4,7 @@ $padding: 10px;
 .container {
   width: 600px - $padding;
   margin: 0 auto;
-  padding: 10px;
+  padding: $padding;
   background-color: $color;
 }
 

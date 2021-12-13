@@ -17,12 +17,22 @@ class Clock extends Component<ClockProps> {
     // name: 'Romain',
   };
 
+  interval: any;
+
   componentDidMount() {
-    setInterval(() => {
+    // setInterval / clearInterval
+    // addEventListener / removeEventListener
+    // WebSockets / ws.close
+    // Worker / ws.destroy
+    this.interval = setInterval(() => {
       this.setState({
         now: new Date(), // on ne passe que les nouvelles clés du state (ici name serait conservé)
       });
     }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
   }
 
   render() {
