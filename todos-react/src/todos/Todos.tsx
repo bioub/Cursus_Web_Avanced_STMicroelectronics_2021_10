@@ -1,8 +1,8 @@
-import { Component, ReactNode } from "react";
+import { Component, ReactNode } from 'react';
 
-import { Todo } from "./model";
-import TodoForm from "./TodoForm";
-import TodoList from "./TodoList";
+import { Todo } from './model';
+import TodoForm from './TodoForm';
+import TodoList from './TodoList';
 
 interface State {
   todos: Todo[];
@@ -24,13 +24,13 @@ class Todos extends Component {
       },
     ],
     newTodo: 'DEF',
-  }
+  };
 
   handleNewTodoChange = (newTodo: string) => {
     this.setState({
-      newTodo
-    })
-  }
+      newTodo,
+    });
+  };
 
   handleAdd = () => {
     this.setState({
@@ -40,19 +40,23 @@ class Todos extends Component {
           id: Math.random(),
           title: this.state.newTodo,
           completed: false,
-        }
-      ]
-    })
-  }
+        },
+      ],
+    });
+  };
 
   render(): ReactNode {
     const { newTodo, todos } = this.state;
     return (
       <div className="Todos">
-        <TodoForm newTodo={newTodo} onNewTodoChange={this.handleNewTodoChange} onAdd={this.handleAdd} />
+        <TodoForm
+          newTodo={newTodo}
+          onNewTodoChange={this.handleNewTodoChange}
+          onAdd={this.handleAdd}
+        />
         <TodoList items={todos} />
       </div>
-    )
+    );
   }
 }
 
